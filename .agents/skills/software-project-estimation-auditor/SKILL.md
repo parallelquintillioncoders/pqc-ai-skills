@@ -123,6 +123,33 @@ Show formulas transparently:
 
 Do not confuse markup and margin. Show low/likely/high scenarios, internal cost, client quote, gross profit, gross margin, currency, assumptions, and sensitivity to rate/effort changes. Taxes (GST/VAT) and third-party subscriptions/hosting/SMS/WhatsApp/maps/payment/app-store fees must be separately identified. Never assume tax registration or applicable tax treatment.
 
+## Client-side prerequisites and responsibilities
+
+Create a project-specific **Client Prerequisites Register**. Identify everything the client must provide, purchase, configure, approve, or make accessible for PQC to complete the quoted scope.
+
+Check relevant categories:
+- Business decisions, requirements clarifications, workflows, and an authorized point of contact.
+- Brand assets, copy, images, videos, documents, translations, and other content.
+- Design files, UX decisions, prototypes, and design approvals.
+- Repository/source-code access, hosting/server, domain/DNS, database, environments, and deployment permissions.
+- API documentation, sandbox/production credentials, vendor accounts, and third-party contacts.
+- Client-owned accounts and approvals for app stores, payment gateways, SMS/WhatsApp, maps, email, cloud, analytics, and external services.
+- Sample data, migration extracts, test accounts, test devices, hardware, and UAT resources.
+- Legal rights/consents for supplied content and permissions to access/process required data.
+- Timely testing, consolidated feedback, milestone review, and written acceptance.
+
+For each prerequisite include:
+- Item and purpose.
+- Responsible owner (Client, PQC, or Third Party).
+- Status: Provided / Required / Pending / Not Applicable.
+- Needed by: kickoff, development milestone, integration, UAT, or launch.
+- Whether procurement/subscription cost is included or paid directly by the client.
+- Impact if missing or late: blocked work, dependency, timeline risk, additional effort/cost, or scope limitation.
+
+Do not assume PQC will create missing client content, buy client subscriptions, obtain third-party approvals, provide hardware, supply production credentials, or perform unquoted data cleanup/migration.
+
+List client responsibilities separately from PQC delivery tasks. Convert missing critical prerequisites into clarification questions or explicit estimate assumptions. A delivery schedule must reflect prerequisite availability and client approval lead times.
+
 ## Commercial protection
 
 List in-scope deliverables, exclusions, assumptions, client responsibilities, access needed, approval/revision rounds, change-request procedure, acceptance criteria, warranty scope, maintenance options, and schedule/cost dependencies. Flag vague terms such as "complete system", "unlimited changes", "all integrations", "real-time", and "bug-free".
@@ -139,9 +166,10 @@ List in-scope deliverables, exclusions, assumptions, client responsibilities, ac
 8. Delivery milestones, staffing, dependencies, critical path.
 9. Market-rate research with sources, dates, geography, currency, units, confidence.
 10. Financial model: internal cost, contingency, quote scenarios, profit/margin, taxes, external costs.
-11. Assumptions, exclusions, risks, client dependencies.
-12. Only material unanswered clarification questions.
-13. Client-ready quotation without internal cost/margin unless requested.
+11. Client Prerequisites Register — client/third-party inputs, owner, status, needed-by milestone, cost responsibility, and impact if delayed.
+12. Assumptions, exclusions, risks, client dependencies, and concise estimate notes.
+13. Only material unanswered clarification questions.
+14. Client-ready quotation without internal cost/margin unless requested; include project-specific client prerequisites and notes.
 
 ## Final quality gates
 
@@ -156,6 +184,9 @@ List in-scope deliverables, exclusions, assumptions, client responsibilities, ac
 - Contingency is separate and not double-counted.
 - Unknowns are not silently treated as facts.
 - Quote includes scope boundaries and commercial assumptions.
+- Client prerequisites are explicitly listed, assigned to an owner, and reflected in the schedule and cost.
+- Missing client access, assets, credentials, approvals, test data, and UAT support are not silently assumed to be available.
+- Client-paid subscriptions and third-party dependencies are clearly separated from PQC fees.
 
 ## Interaction style
 
