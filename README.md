@@ -8,6 +8,7 @@ Reusable agent skills for software estimation and client-facing commercial docum
 |---|---|
 | `software-project-estimation-auditor` | Audits scope, modules, missing requirements, technical skills, effort, schedule, current market rates, and project finances. |
 | `client-proposal-legal-agreement-generator` | Converts an approved estimate into a client-facing proposal, SOW, payment plan, and draft software development agreement. |
+| `client-estimation-payment-quotation` | Creates a concise client-facing estimate with recipient, module-wise pricing, delivery timeline, and payment milestones — without a full agreement. |
 
 ## Repository structure
 
@@ -49,6 +50,16 @@ identify missing requirements and skills, estimate hours by role,
 build a dependency-aware schedule, research current market rates
 for the relevant countries, and produce low/likely/high pricing.
 Do not invent requirements or rates; cite live sources.
+```
+
+**Prepare a short estimate only**
+
+```text
+Use client-estimation-payment-quotation.
+Prepare a concise client estimate addressed to the right customer.
+Include the main modules, deliverables, delivery timeline, total price,
+and 50/30/20 payment milestones unless different terms were agreed.
+Do not generate a full agreement or lengthy legal clauses.
 ```
 
 **Prepare a client pack**
