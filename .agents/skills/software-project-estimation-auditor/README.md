@@ -1,90 +1,142 @@
 # Software Project Estimation Auditor
 
-Audit an existing software project or a client-defined scope before preparing a quotation.
+Build a realistic, evidence-based estimate for an existing software project, repository, or already-defined client scope.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open SKILL.md](./SKILL.md)
+[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
-## When to use this skill
+## What it creates
 
-Use this skill when you already have one or more of the following:
-- An existing app, website, backend, or software repository.
-- A client PRD, SRS, requirements document, feature list, or approved scope.
-- UI/UX designs, user stories, API documentation, or database structure.
-- An existing project that needs enhancements, new modules, integrations, migration, or a revised estimate.
+- Confirmed, assumed, unknown, and recommended scope.
+- Module, feature, workflow, and dependency audit.
+- Missing-requirement gap register with severity and impact.
+- Technical skill and team-role matrix.
+- Task-level effort using optimistic, likely, pessimistic, and PERT estimates.
+- Role and phase totals, delivery schedule, milestones, and critical path.
+- Current market-rate research with sources, dates, geography, and billing model.
+- Internal cost, contingency, quote scenarios, profit, and margin.
+- Client responsibilities, prerequisites, assumptions, exclusions, and risks.
 
-**This is not a scratch-project ideation skill.** For a brand-new idea with no defined scope, use [Product Discovery & Blueprint Architect](../product-discovery-blueprint-architect/README.md) first and prepare an agreed product scope.
+## When to use it
 
-## What it produces
+Use when you already have an existing app, website, backend, repository, client PRD/SRS, feature list, UI design, API documentation, or defined enhancement scope.
 
-1. Confirmed, assumed, unknown, and recommended scope.
-2. Module, feature, workflow, and dependency audit.
-3. Missing requirements and gap register with severity and impact.
-4. Technical skill and team-role matrix.
-5. Work Breakdown Structure with optimistic, most-likely, pessimistic, and PERT hours.
-6. Effort totals by task, role, and phase.
-7. Delivery schedule, milestones, dependencies, and critical path.
-8. Current market-rate research for relevant roles, geography, and engagement model.
-9. Internal cost, contingency, pricing scenarios, profit, and margin calculations.
-10. Client responsibilities, prerequisites, assumptions, exclusions, and risks.
+**This is not a scratch-project ideation skill.** For a new idea with no defined requirements, use Product Discovery & Blueprint Architect first and approve the product scope.
 
-## How to install in Antigravity
+---
 
-Run from the root of the project where you want the skill to be available.
+## Install with the Skills CLI
 
-**Project installation**
+These skills use the shared Agent Skills format. Install them through the Skills CLI into any supported coding agent. The CLI places the skill in the correct location for the selected agent.
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent antigravity
-```
+### Popular supported agents
 
-**Global installation**
+| Agent | Agent ID for the CLI |
+|---|---|
+| Claude Code | `claude-code` |
+| Codex | `codex` |
+| Cursor | `cursor` |
+| Google Antigravity | `antigravity` |
+| Gemini CLI | `gemini-cli` |
+| GitHub Copilot | `github-copilot` |
+| Cline | `cline` |
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent antigravity --global
-```
+See the [complete, current supported-agent list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). Agent IDs and supported targets can change as the Skills CLI evolves.
 
-## How to update
+### Install in the current project
 
-**Update project installation**
+Run from the root of the project where you want this skill available. Replace `<agent-id>` with one of the supported IDs above.
 
-```bash
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent <agent-id>
+~~~
+
+Example for Claude Code:
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent claude-code
+~~~
+
+### Install globally for your user account
+
+This makes the skill available across projects for the selected agent.
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent <agent-id> --global
+~~~
+
+### Install for multiple agents
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent claude-code codex cursor antigravity
+~~~
+
+### Install for all supported agents
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent '*'
+~~~
+
+Add `--global` to the command for global installation.
+
+---
+
+## Update this skill
+
+Update the project installation (run from the project root):
+
+~~~bash
 npx skills update software-project-estimation-auditor -p
-```
+~~~
 
-**Update global installation**
+Update the global installation:
 
-```bash
+~~~bash
 npx skills update software-project-estimation-auditor -g
-```
+~~~
+
+Update all installed project skills:
+
+~~~bash
+npx skills update -p
+~~~
+
+Update all globally installed skills:
+
+~~~bash
+npx skills update -g
+~~~
+
+Check for available updates:
+
+~~~bash
+npx skills check
+~~~
+
+List installed skills:
+
+~~~bash
+npx skills list
+npx skills list -g
+~~~
+
+> The Skills CLI update command updates skills already tracked by that CLI. If you manually copied a skill folder, download the latest folder from this repository and replace the manual copy.
+
+---
 
 ## Example prompt
 
-```text
+~~~text
 Use software-project-estimation-auditor.
 
-Inspect this existing project, its repository, and available requirements.
-Audit every requested module and workflow. Identify missing requirements,
-technical skills, integrations, backend/data work, QA, deployment, and
-handover tasks.
+Inspect this existing project and its available requirements.
+Audit the modules, workflows, dependencies, missing gaps, and skills.
+Estimate effort by role and phase, build a dependency-aware schedule,
+research current market rates for the relevant geography, and calculate
+low / likely / high cost scenarios. Cite rate sources and do not invent facts.
+~~~
 
-Estimate effort by role using low / likely / high scenarios. Build a
-dependency-aware schedule. Research current market rates for the relevant
-roles and project geography, cite sources, and calculate project costs.
+## Notes
 
-Do not invent requirements, rates, or citations. Clearly separate confirmed
-scope, assumptions, recommendations, and unanswered questions.
-```
-
-## What to provide
-
-- Repository or project files, if available.
-- PRD/SRS, user stories, designs, or feature list.
-- Team, deadline, currency, and target geography if known.
-- Existing rate cards or target margin, if you want them used.
-
-## Important
-
-- This skill is intended for existing projects or already-defined scope.
-- Live rate research requires web-browsing access. If unavailable, the skill must say rates were not verified.
-- Employee salary data, freelancer rates, and agency billing rates must not be treated as interchangeable.
-- Internal cost and margin calculations are not automatically included in the client-facing quotation.
+- Web research, repository access, file reading, and diagram rendering depend on the capabilities of the selected agent and tools connected to it.
+- The skill is written in agent-neutral format; some execution features may vary between agents.
+- Never share secrets, access tokens, passwords, private customer data, or bank details in prompts or public repositories.
