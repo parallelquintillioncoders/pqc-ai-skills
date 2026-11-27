@@ -15,7 +15,7 @@
 | **Client Estimation & Payment Quotation** | Send a concise estimate with price, timeline, payment terms, and prerequisites | [Read guide](.agents/skills/client-estimation-payment-quotation/README.md) |
 | **Client Proposal & Legal Agreement Generator** | Prepare a formal proposal, SOW, and draft development agreement | [Read guide](.agents/skills/client-proposal-legal-agreement-generator/README.md) |\n| **Practical Software Engineering Standards** | Apply relevant coding principles, architecture, file-size guidance, testing, and security without overengineering | [Read guide](.agents/skills/practical-software-engineering-standards/README.md) |
 
-Each skill has a separate README with its purpose, install commands, update commands, and example prompt. The Product Discovery blueprint is table-first and includes screen inventories, navigation matrices, and Mermaid flow diagrams. Use Practical Software Engineering Standards alongside it to define only the engineering rules relevant to the project.
+Each skill has a separate README with its purpose, install commands, update commands, and example prompt. The Product Discovery blueprint is table-first and includes screen inventories, navigation matrices, and Mermaid flow diagrams. Use Practical Software Engineering Standards alongside it to define only the engineering rules relevant to the project, including a think-before-coding, simple, surgical, and verifiable implementation workflow.
 
 ## Which project types are supported?
 
