@@ -9,8 +9,9 @@ Turn a rough idea or an existing product into a researched product blueprint for
 - Product objective, target audience, user problems, and success measures.
 - Competitor and market research based on the product's actual target geography (local, global, or multi-market).
 - Prioritised modules, features, user roles, and business rules.
-- Screen inventory with purpose, actions, and destinations.
-- User journeys, navigation tables, and Mermaid flowcharts.
+- Table-first product deliverable: overview, users, market, modules/features, screens, permissions, APIs, integrations, roadmap, risks, and decisions.
+- Screen inventory with stable screen IDs, entry points, actions, destinations, and role access.
+- Navigation mapping tables plus mandatory Mermaid flowcharts for app navigation, core user journeys, complex modules, and system architecture.
 - Technical comparisons in this order: open-source/self-hosted, hosted free-tier, then paid/managed services.
 - Recommended technology stack, architecture, dependencies, risks, and roadmap.
 - A single consolidated set of clarification questions at the end.
@@ -24,6 +25,52 @@ Use for both:
 For technical services, it compares libraries, SDKs, APIs, and infrastructure. It verifies licensing, quotas, trial expiry, operating costs, pricing, availability, security, and documentation. Open-source software may still require paid hosting and maintenance.
 
 ---
+
+
+
+## Required deliverable format: tables + flow diagrams
+
+The final product blueprint is **table-first and diagram-led**, not a long paragraph-based report.
+
+It must include structured tables for:
+- Product overview and target users.
+- Market/competitor research.
+- Module and feature breakdown.
+- Screen inventory with unique screen IDs.
+- Role and permission matrix.
+- Screen-to-screen navigation mapping.
+- Free/open-source, hosted free-tier, and paid API/library comparisons.
+- Recommended technology stack.
+- Integrations, prerequisites, and dependencies.
+- Roadmap, risks, assumptions, and final decisions.
+
+It must also include Mermaid flowcharts for:
+1. Overall application navigation.
+2. The main user journey.
+3. Complex module workflows.
+4. System architecture and external-service integrations.
+
+**Every screen must appear in the screen inventory and navigation mapping.** The names and IDs in the tables must match the diagrams. If the selected AI agent cannot render a diagram preview, it must still provide valid Mermaid source in a fenced code block.
+
+Example screen table:
+
+| Screen ID | Module | Screen name | Main action | Next screen |
+|---|---|---|---|---|
+| AUTH-01 | Authentication | Login | Enter phone/email | AUTH-02 |
+| AUTH-02 | Authentication | Verification | Confirm OTP/code | HOME-01 |
+| HOME-01 | Home | Main dashboard | Open messages | CHAT-01 |
+
+Example navigation flow:
+
+~~~mermaid
+flowchart TD
+    A[AUTH-01 Login] --> B[AUTH-02 Verification]
+    B -->|Verified| C[HOME-01 Dashboard]
+    C -->|Open messages| D[CHAT-01 Chat List]
+    D -->|Choose conversation| E[CHAT-02 Conversation]
+~~~
+
+The complete final question list must remain the last substantive section of the blueprint.
 
 ## Install with the Skills CLI
 
