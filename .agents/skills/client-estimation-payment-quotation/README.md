@@ -2,7 +2,7 @@
 
 Create a concise estimate/quotation that PQC can send directly to a client. It is not a full legal agreement.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
+[← Back to PQC AI Skills](../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
 ## What the client estimate includes
 
