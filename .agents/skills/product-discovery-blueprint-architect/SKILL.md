@@ -383,6 +383,161 @@ For each phase list modules, deliverables, dependencies, exit criteria and measu
 
 Do not create a detailed development cost estimate unless asked. You may identify cost drivers and relative cost (Low/Medium/High) for major technical choices.
 
+## Mandatory presentation format — tables and flow diagrams
+
+**The deliverable must look like a structured product specification/blueprint, not a long essay. Use tables as the default format for product information and Mermaid diagrams for flows.** Keep paragraphs short and use them only for context, decisions, and explanations that do not fit naturally in a table.
+
+### Required tables
+
+Use these tables in the final blueprint. For a very small product, combine related tables but do not omit the essential information.
+
+1. **Product overview table**
+
+| Field | Definition |
+|---|---|
+| Product / project name | Working name |
+| Project mode | New Product / Existing Product |
+| Business goal | What the product must achieve |
+| Problem solved | User/business problem |
+| Target users | Main audience |
+| Target market | Local / Global / Multi-market + countries/regions |
+| Platforms | Web / Android / iOS / Desktop / Admin |
+| Product stage | Prototype / MVP / Production |
+| Success measures | How success will be measured |
+
+2. **User/persona table**
+
+| User ID | User type | What they need to do | Main permissions | Primary outcome |
+|---|---|---|---|---|
+
+3. **Market and competitor table**
+
+| Product / competitor | Target market | Relevant capabilities | Pricing model | Strengths | Gaps/opportunity | Source |
+|---|---|---|---|---|---|---|
+
+4. **Scope and priority table**
+
+| Priority | Module | Included capability | Why it matters | Release |
+|---|---|---|---|---|
+
+5. **Module and feature matrix**
+
+| Module ID | Module | Feature ID | Feature | Plain-language explanation | User benefit | Priority | Dependencies |
+|---|---|---|---|---|---|---|---|
+
+6. **Screen inventory — mandatory**
+
+| Screen ID | Module | Screen name | Purpose | Entry point | Main actions | Goes to screen(s) | Role/access | Priority |
+|---|---|---|---|---|---|---|---|---|
+
+Give every screen a stable unique ID (for example AUTH-01, CHAT-02, ADMIN-03). Keep screen names consistent across tables and diagrams.
+
+7. **Role and permission matrix**
+
+| Module / action | Guest | User | Moderator | Admin | Notes |
+|---|---:|---:|---:|---:|---|
+
+Replace example roles with actual project roles. Use Yes / No / Limited, not vague prose.
+
+8. **Navigation mapping table — mandatory**
+
+| From screen ID | User action | To screen ID | Condition / result | Back or return path |
+|---|---|---|---|---|
+
+Every normal screen must appear in at least one navigation row. If a screen is a modal, device/system screen, background job, or standalone deep-link destination, label it explicitly.
+
+9. **Technical service/API comparison table**
+
+| Capability | Option | Type | Free allowance / license | Infrastructure and usage costs | Limits / risks | Documentation / pricing source |
+|---|---|---|---|---|---|---|
+
+Always group options in the required order: open-source/self-hosted, hosted free-tier, then paid/managed. Use current verified sources and date checked.
+
+10. **Recommended technology stack table**
+
+| Layer | Recommended choice | Why it fits | Free/self-hosted alternative | Hosted free-tier alternative | Paid alternative | Key trade-off |
+|---|---|---|---|---|---|---|
+
+11. **Integration and dependency table**
+
+| ID | Integration / dependency | Purpose | Provider/owner | Required access or account | Needed by phase | Cost responsibility | Fallback |
+|---|---|---|---|---|---|---|---|
+
+12. **Data and security table**
+
+| Data/entity | Purpose | Created/updated by | Sensitivity | Access rules | Retention/security notes |
+|---|---|---|---|---|---|
+
+Keep this at conceptual product-design level unless the user asks for a detailed database schema.
+
+13. **Roadmap table**
+
+| Phase | Modules/features | Deliverables | Prerequisites | Exit criteria | Deferred items |
+|---|---|---|---|---|---|
+
+14. **Risks, assumptions and gap table**
+
+| ID | Type | Description | Impact | Recommended resolution | Owner | Status |
+|---|---|---|---|---|---|---|
+
+15. **Consolidated questions table — always last**
+
+| Question ID | What needs confirmation | Simple choices | Free-first option | Paid option (if relevant) | Recommended default | Why it matters |
+|---|---|---|---|---|---|---|
+
+The question table must be the last substantive section in the product blueprint. Do not scatter clarification questions throughout the document.
+
+### Mandatory Mermaid diagrams
+
+For every medium/large product, include Mermaid diagrams in fenced `mermaid` code blocks. At minimum:
+
+1. **Overall application navigation flowchart:** show major areas and the main screen-to-screen paths.
+2. **Primary user journey flowchart:** show a user completing the product's core task from entry to success, including decision points and failure/retry paths.
+3. **Module-level flowcharts:** provide separate diagrams for complex modules (e.g. messaging, booking, payment, calling, approvals) rather than cramming the entire product into one unreadable chart.
+4. **System architecture / integration flowchart:** show frontend apps, backend/API, authentication, database, external services, notifications, storage, and important data flows.
+
+Use actual screen IDs and names from the screen inventory. Use decisions (`{ }`) for branching choices, and label edges with user actions or system events. Show alternate/failure paths where relevant. Keep flowcharts readable and split large flows into smaller diagrams.
+
+Example navigation diagram:
+
+~~~mermaid
+flowchart TD
+    A[AUTH-01 Login] -->|OTP verified| B[HOME-01 Home]
+    B -->|Open chats| C[CHAT-01 Chat List]
+    C -->|Select conversation| D[CHAT-02 Conversation]
+    D -->|Attach media| E[MEDIA-01 Media Picker]
+    E -->|Send| D
+    D -->|Start call| F[CALL-01 Active Call]
+    F -->|End call| D
+~~~
+
+Example system architecture diagram:
+
+~~~mermaid
+flowchart LR
+    APP[Web / Mobile Apps] --> API[Backend API]
+    APP --> AUTH[Authentication]
+    API --> DB[(Application Database)]
+    API --> STORAGE[File / Media Storage]
+    API --> EXT[Third-party APIs]
+    API --> PUSH[Push Notifications]
+~~~
+
+If the selected AI agent cannot render Mermaid previews, still include valid Mermaid source code so the user can render it elsewhere. Do not replace a requested diagram with a paragraph-only description.
+
+### Cross-check tables against diagrams
+
+Before delivering:
+- Every feature in the module matrix maps to at least one screen or is explicitly marked as background/API-only.
+- Every screen has a stable ID and appears in the navigation table.
+- Every normal screen appears in a navigation flowchart.
+- Every diagram uses the exact screen IDs/names from the screen inventory.
+- Role permissions agree with the navigation and screen access.
+- Every external service in the tech stack appears in the integration table.
+- Every dependency has an owner and a required-by phase.
+- The recommended stack has free/self-hosted and hosted-free alternatives considered before paid alternatives.
+- Keep Mermaid diagrams syntactically valid and readable.
+
 ## Required final blueprint format
 
 Use this report order:
