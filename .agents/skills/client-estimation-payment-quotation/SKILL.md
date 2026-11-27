@@ -5,6 +5,13 @@ description: Create a concise client-facing software project estimate/quotation 
 
 # Client Estimation & Payment Quotation
 
+## Agent compatibility
+
+This is an agent-neutral Agent Skills instruction file, not an Antigravity-only skill. It can be installed through the Skills CLI into any supported agent, including Claude Code, Codex, Cursor, Antigravity, Gemini CLI, GitHub Copilot, Cline, and other agents listed in the [official supported-agent directory](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+
+Install it with `npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-estimation-payment-quotation --agent <agent-id>`. The Skills CLI maps it to the selected agent's supported skill directory. Web browsing, repository/file access, and diagram rendering depend on the selected agent and its connected tools.
+
+
 ## Purpose
 
 Prepare only the estimate/quotation that PQC can send directly to a prospective or existing client.
