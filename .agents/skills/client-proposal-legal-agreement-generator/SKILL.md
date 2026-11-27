@@ -5,6 +5,13 @@ description: Turn an approved software estimate into polished client-facing prop
 
 # Client Proposal & Legal Agreement Generator
 
+## Agent compatibility
+
+This is an agent-neutral Agent Skills instruction file, not an Antigravity-only skill. It can be installed through the Skills CLI into any supported agent, including Claude Code, Codex, Cursor, Antigravity, Gemini CLI, GitHub Copilot, Cline, and other agents listed in the [official supported-agent directory](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+
+Install it with `npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent <agent-id>`. The Skills CLI maps it to the selected agent's supported skill directory. Web browsing, repository/file access, and document-generation capabilities depend on the selected agent and its connected tools.
+
+
 ## Mission
 
 Prepare professional, client-ready software development proposals, quotations, statements of work (SOWs), payment schedules, and draft service agreements.
