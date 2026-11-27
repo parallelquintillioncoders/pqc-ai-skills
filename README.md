@@ -10,12 +10,12 @@
 
 | Skill | Use it for | Documentation |
 |---|---|---|
-| **Product Discovery & Blueprint Architect** | New product ideas or existing products that need a complete product blueprint | [Read guide](.agents/skills/product-discovery-blueprint-architect/README.md) |
+| **Product Discovery & Blueprint Architect** | New product ideas or existing products; outputs tables for modules/screens plus Mermaid navigation and architecture flowcharts | [Read guide](.agents/skills/product-discovery-blueprint-architect/README.md) |
 | **Software Project Estimation Auditor** | Estimate an existing project or a client-defined scope | [Read guide](.agents/skills/software-project-estimation-auditor/README.md) |
 | **Client Estimation & Payment Quotation** | Send a concise estimate with price, timeline, payment terms, and prerequisites | [Read guide](.agents/skills/client-estimation-payment-quotation/README.md) |
 | **Client Proposal & Legal Agreement Generator** | Prepare a formal proposal, SOW, and draft development agreement | [Read guide](.agents/skills/client-proposal-legal-agreement-generator/README.md) |
 
-Each skill has a separate README with its purpose, install commands, update commands, and example prompt.
+Each skill has a separate README with its purpose, install commands, update commands, and example prompt. The Product Discovery blueprint is table-first and includes screen inventories, navigation matrices, and Mermaid flow diagrams.
 
 ## Which project types are supported?
 
