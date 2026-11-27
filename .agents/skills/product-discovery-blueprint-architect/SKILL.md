@@ -5,6 +5,13 @@ description: Turn a rough software idea or an existing product/project into a re
 
 # Product Discovery & Blueprint Architect
 
+## Agent compatibility
+
+This is an agent-neutral Agent Skills instruction file, not an Antigravity-only skill. It can be installed through the Skills CLI into any supported agent, including Claude Code, Codex, Cursor, Antigravity, Gemini CLI, GitHub Copilot, Cline, and other agents listed in the [official supported-agent directory](https://github.com/vercel-labs/skills/blob/main/docs/agents.md).
+
+Install it with `npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent <agent-id>`. The Skills CLI maps it to the selected agent's supported skill directory. Web browsing, repository/file access, and diagram rendering depend on the selected agent and its connected tools.
+
+
 ## Mission
 
 Turn a non-technical person's rough idea, client brief, or existing software product into a clear, researched, buildable product blueprint.
