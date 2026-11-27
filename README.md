@@ -1,104 +1,192 @@
 # PQC AI Skills
 
-**A collection of reusable AI skills by Parallel Quintillion Coders (PQC) for product discovery, software estimation, client quotations, and development agreements.**
+**Reusable Agent Skills by Parallel Quintillion Coders (PQC).** Use them for product discovery, project estimation, client quotations, and software development agreements across supported AI coding agents.
 
-[View all skills](https://github.com/parallelquintillioncoders/pqc-ai-skills/tree/main/.agents/skills) · [PQC Website](https://parallelquintillioncoders.com/)
+[Browse all skills](https://github.com/parallelquintillioncoders/pqc-ai-skills/tree/main/.agents/skills) · [PQC Website](https://parallelquintillioncoders.com/)
 
 ---
 
-## Choose a skill
-
-Each skill has its own README with its purpose, workflow, installation commands, update commands, and example prompts. Open the guide for the skill you need.
+## Choose the skill you need
 
 | Skill | Use it for | Documentation |
 |---|---|---|
-| **Product Discovery & Blueprint Architect** | Start from a new product idea or analyse an existing product. Research the market, define modules, screens, navigation, technical options, and roadmap. | [Read installation & usage guide](.agents/skills/product-discovery-blueprint-architect/README.md) |
-| **Software Project Estimation Auditor** | Audit an existing project or client-defined scope. Find gaps, map required skills, estimate effort and timeline, research market rates, and calculate costs. | [Read installation & usage guide](.agents/skills/software-project-estimation-auditor/README.md) |
-| **Client Estimation & Payment Quotation** | Prepare a short client-facing estimate with the recipient, scope, module-wise price, timeline, payment terms, prerequisites, and notes. | [Read installation & usage guide](.agents/skills/client-estimation-payment-quotation/README.md) |
-| **Client Proposal & Legal Agreement Generator** | Prepare a formal client proposal, SOW, payment schedule, and draft software development services agreement. | [Read installation & usage guide](.agents/skills/client-proposal-legal-agreement-generator/README.md) |
+| **Product Discovery & Blueprint Architect** | New product ideas or existing products that need a complete product blueprint | [Read guide](.agents/skills/product-discovery-blueprint-architect/README.md) |
+| **Software Project Estimation Auditor** | Estimate an existing project or a client-defined scope | [Read guide](.agents/skills/software-project-estimation-auditor/README.md) |
+| **Client Estimation & Payment Quotation** | Send a concise estimate with price, timeline, payment terms, and prerequisites | [Read guide](.agents/skills/client-estimation-payment-quotation/README.md) |
+| **Client Proposal & Legal Agreement Generator** | Prepare a formal proposal, SOW, and draft development agreement | [Read guide](.agents/skills/client-proposal-legal-agreement-generator/README.md) |
+
+Each skill has a separate README with its purpose, install commands, update commands, and example prompt.
+
+## Which project types are supported?
+
+- **New product idea:** Start with Product Discovery & Blueprint Architect. It can help turn a rough idea into a researched product blueprint.
+- **Existing project / defined scope:** Use Software Project Estimation Auditor, then choose the client quotation or formal agreement skill.
+
+The three estimation/documentation skills do not invent a complete new product from zero. They expect an existing product or an already-defined scope.
+
+## Recommended workflows
+
+### New product
+
+~~~text
+Rough idea or business problem
+        |
+        v
+Product Discovery & Blueprint Architect
+        |
+        v
+Confirm and approve the product scope
+        |
+        v
+Software Project Estimation Auditor
+        |
+        v
+Client estimate OR formal proposal/agreement
+~~~
+
+### Existing project
+
+~~~text
+Existing app / website / repository / PRD / client brief
+        |
+        v
+Software Project Estimation Auditor
+        |
+        v
+Client Estimation & Payment Quotation
+        OR
+Client Proposal & Legal Agreement Generator
+~~~
 
 ---
 
-## Which workflow should I follow?
+## Works across supported AI agents
 
-### New product idea
+These are standard `SKILL.md` Agent Skills, not Antigravity-only instructions. The [Skills CLI](https://github.com/vercel-labs/skills) installs them into the correct folder for the agent you select.
 
-```text
-Rough idea or business problem
-          |
-          v
-Product Discovery & Blueprint Architect
-          |
-          v
-Confirm and approve the product scope
-          |
-          v
-Software Project Estimation Auditor
-          |
-          v
-Client Estimation OR Formal Proposal & Agreement
-```
+Popular supported agents include:
 
-### Existing product or client-defined scope
+| Agent | CLI agent ID |
+|---|---|
+| Claude Code | `claude-code` |
+| Codex | `codex` |
+| Cursor | `cursor` |
+| Google Antigravity | `antigravity` |
+| Gemini CLI | `gemini-cli` |
+| GitHub Copilot | `github-copilot` |
+| Cline | `cline` |
 
-```text
-Existing app / website / codebase / PRD / client brief
-          |
-          v
-Software Project Estimation Auditor
-          |
-          v
-Client Estimation OR Formal Proposal & Agreement
-```
+The Skills CLI supports additional agents. See the [official full supported-agent list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md) for current IDs and installation paths.
 
-## Important scope distinction
+### Install one skill in a project
 
-- **Product Discovery & Blueprint Architect** supports both new ideas and existing products.
-- **Software Project Estimation Auditor**, **Client Estimation & Payment Quotation**, and **Client Proposal & Legal Agreement Generator** are intended for existing projects or a scope that has already been defined. They do not invent a complete new product from zero.
+Run from the project root. Replace `<skill-name>` and `<agent-id>` with the desired values.
 
-## Quick installation — Google Antigravity
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill <skill-name> --agent <agent-id>
+~~~
 
-Install one skill from the root of the project where you want it available. Replace the skill name with one of the four names below.
+Example:
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill <skill-name> --agent antigravity
-```
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent claude-code
+~~~
 
-Install all four in the current project:
+### Install one skill globally
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill '*' --agent antigravity
-```
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill <skill-name> --agent <agent-id> --global
+~~~
 
-Install all four globally:
+### Install one skill into multiple agents
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill '*' --agent antigravity --global
-```
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill <skill-name> --agent claude-code codex cursor antigravity
+~~~
 
-## Quick update commands
+### Install all PQC skills for the selected agent
 
-Update all project-installed skills (run from the project root):
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill '*' --agent <agent-id>
+~~~
 
-```bash
+For every supported agent, use:
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill '*' --agent '*'
+~~~
+
+Add `--global` to install globally rather than into the current project.
+
+---
+
+## Update installed skills
+
+The Skills CLI updates skills that were previously installed/tracked by the CLI. You do not need to run `skills add` again for an already-installed skill.
+
+### Update all project-installed skills
+
+Run from the project root where skills were installed:
+
+~~~bash
 npx skills update -p
-```
+~~~
 
-Update all globally installed skills:
+### Update all globally installed skills
 
-```bash
+~~~bash
 npx skills update -g
-```
+~~~
 
-For an individual skill's install/update commands, open that skill's README from the table above.
+### Update one skill
 
-> These update commands apply to skills tracked by the Skills CLI. If you manually copied a skill folder, download the latest version from this repository and replace the copied folder.
+Project installation:
+
+~~~bash
+npx skills update <skill-name> -p
+~~~
+
+Global installation:
+
+~~~bash
+npx skills update <skill-name> -g
+~~~
+
+### Check updates and list skills
+
+~~~bash
+npx skills check
+npx skills list
+npx skills list -g
+~~~
+
+If you manually copied skill folders instead of using the CLI, update them by downloading the latest repository version and replacing the copied folders.
+
+---
+
+## Use a skill
+
+After installing, ask your selected AI agent to use the skill by its name. Example:
+
+~~~text
+Use product-discovery-blueprint-architect.
+
+Review this product idea or existing project:
+[Describe the product or provide the project context]
+
+Research the relevant market. Define objectives, modules, features,
+screens, user roles, journeys, navigation flowcharts, and architecture.
+Compare open-source/self-hosted options first, hosted free tiers second,
+and paid services third. Put all clarification questions together at the end.
+~~~
+
+For detailed examples, prerequisites, and skill-specific commands, open the individual documentation linked at the top of this README.
 
 ## Repository structure
 
-```text
+~~~text
 pqc-ai-skills/
-├── README.md                         # Main index and quick start
+├── README.md
 └── .agents/
     └── skills/
         ├── product-discovery-blueprint-architect/
@@ -113,15 +201,20 @@ pqc-ai-skills/
         └── client-proposal-legal-agreement-generator/
             ├── SKILL.md
             └── README.md
-```
+~~~
 
-## General notes
+## Important notes
 
-- Live product/market/rate research requires web-browsing access in the AI agent.
-- Verify API pricing, free-tier limits, licenses, and vendor terms before committing to a technology.
+- Basic Agent Skills are broadly portable, but support for tools, browsing, file access, and advanced features differs by agent. Check the selected agent's documentation.
+- Product and market research needs web-browsing access in the selected agent.
+- Verify API pricing, free-tier limits, licenses, and vendor terms before choosing a technology.
 - Legal agreement output is a draft and should be reviewed by qualified counsel in the relevant jurisdiction.
-- Never publish client-confidential files, credentials, API keys, access tokens, bank details, or private customer information in this public repository.
+- Never publish client-confidential files, credentials, API keys, bank details, or private project information in this public repository.
 
----
+## References
 
-**Maintained by [Parallel Quintillion Coders (PQC)](https://parallelquintillioncoders.com/).**
+- [Skills CLI and installation](https://github.com/vercel-labs/skills)
+- [Official supported agents and paths](https://github.com/vercel-labs/skills/blob/main/docs/agents.md)
+- [Skills.sh directory](https://skills.sh/)
+- [Agent Skills specification](https://agentskills.io/)
+- [PQC Website](https://parallelquintillioncoders.com/)
