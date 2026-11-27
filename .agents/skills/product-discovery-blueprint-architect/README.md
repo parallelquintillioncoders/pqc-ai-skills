@@ -2,7 +2,7 @@
 
 Turn a rough idea or an existing product into a researched product blueprint for both non-technical stakeholders and development teams.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
+[← Back to PQC AI Skills](../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
 ## What it creates
 
