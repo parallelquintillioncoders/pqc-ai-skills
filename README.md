@@ -25,7 +25,7 @@ The skills should inspect the available project material, understand what has al
 | Skill | Use it for | What it generates |
 |---|---|---|
 | `software-project-estimation-auditor` | Internal project analysis before quoting | Module audit, missing gaps, technical skill matrix, effort by role, timeline, researched market rates, cost and quote range |
-| `client-estimation-payment-quotation` | Sending a simple estimate to a client | Recipient details, project scope, module-wise price, delivery timeline, total amount, advance and milestone payment terms |
+| `client-estimation-payment-quotation` | Sending a simple estimate to a client | Recipient details, project scope, module-wise price, delivery timeline, total amount, advance/milestone payments, client-side prerequisites, and estimate notes |
 | `client-proposal-legal-agreement-generator` | Formal client proposal and agreement | Client proposal, SOW, detailed payment plan, software development service agreement, legal/commercial clauses and signature blocks |
 
 ## Repository structure
@@ -155,7 +155,8 @@ Use client-estimation-payment-quotation.
 Review the existing project materials and prepare a concise estimate addressed to the correct client.
 Use only the current/defined project scope; do not invent a new project.
 Include project modules, deliverables, timeline, total price,
-and advance/milestone payment terms.
+advance/milestone payment terms, client-side prerequisites,
+and concise estimate notes.
 
 PQC is the development company and service provider.
 The client is the customer and pays PQC.
