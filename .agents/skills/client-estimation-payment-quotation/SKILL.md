@@ -134,15 +134,40 @@ Show a realistic estimated delivery duration. Include start-date dependency if k
 - Client approval of the estimate
 - Receipt of required content, credentials, designs, or access
 
-Add only concise notes that materially affect the estimate:
-- Estimate validity period (use a proposed 15 calendar days if user has not specified one; label as proposed and editable).
-- Included scope and main exclusions.
-- Client-provided content/access/approvals.
-- Third-party subscription/hosting/vendor charges not included unless priced.
-- New requirements or changes outside the listed scope may require a revised estimate and timeline.
-- Timeline may change if client inputs or approvals are delayed.
+### Client-side prerequisites
 
-Do not add lengthy legal boilerplate. This is an estimate/quotation, not the signed service agreement.
+Add a short **Client-Side Prerequisites** section to the estimate. Include only items relevant to this specific project; do not dump a generic checklist onto every client.
+
+Check the project materials and identify what the client must provide, approve, purchase, configure, or make available for PQC to deliver the quoted scope. Common examples include:
+- A single authorized point of contact and timely business/technical decisions.
+- Final requirements, workflows, business rules, and consolidated approvals.
+- Brand assets, logos, text, translations, images, videos, documents, and other content.
+- UI/UX references, design files, prototypes, or timely design approvals where applicable.
+- Access to existing source code, repositories, hosting/server, domain/DNS, database, and deployment environments.
+- API documentation, sandbox/production credentials, vendor contacts, and permissions for third-party integrations.
+- Client-owned accounts and approvals for Google Play, Apple App Store, payment gateways, SMS/WhatsApp, maps, email, cloud, analytics, or other external services.
+- Sample/import data, test accounts, test cases, devices, or hardware needed for implementation and UAT.
+- Legal rights/consents for client-supplied content and permission to process supplied data.
+- Client-side testing, UAT feedback, and written milestone acceptance.
+
+For each prerequisite that matters, state:
+- What PQC needs from the client.
+- When it is required (before kickoff, during development, UAT, or launch).
+- Whether it is client-provided/client-paid or included in PQC's price.
+- The likely effect if it is late or unavailable (for example, blocked integration, delayed milestone, revised timeline or additional cost).
+
+Do not imply that PQC will purchase third-party subscriptions, provide client-owned accounts, obtain regulatory approvals, produce missing client content, or migrate inaccessible data unless explicitly included in the estimate.
+
+### Notes
+
+Include a concise **Notes** section immediately after Client-Side Prerequisites or Assumptions:
+- This estimate is based on the project information and scope available on the issue date.
+- Project kickoff depends on the agreed advance payment and receipt of the prerequisites marked "required before kickoff".
+- Client delays in providing access, assets, decisions, testing, or approvals may affect delivery dates.
+- Items not listed as included are excluded; additional features or changed requirements require a revised estimate/change approval.
+- Third-party fees and applicable taxes are separate unless explicitly included in the total.
+
+Use only notes relevant to the project. Keep this section concise and do not add lengthy legal boilerplate. This is an estimate/quotation, not the signed service agreement.
 
 ## Required output layout
 
@@ -156,8 +181,10 @@ Produce the estimate in this order:
 6. **Estimated Timeline:** expected duration and key milestones.
 7. **Cost Estimate:** simple module/phase price table, subtotal, discount (if any), taxes/third-party charges, total.
 8. **Payment Terms:** advance, milestone and final payment percentages, amounts, and due triggers; client pays PQC.
-9. **Assumptions / Not Included:** only material points, in concise language.
-10. **Next Step:** client can approve the estimate by replying with written confirmation so PQC can issue the invoice and schedule kickoff. Do not imply that the estimate itself is a full agreement.
+9. **Client-Side Prerequisites:** a project-specific list of materials, access, accounts, decisions, approvals, test data/devices, and UAT support the client must provide, with timing and any client-paid costs.
+10. **Assumptions / Not Included:** only material points, in concise language.
+11. **Notes:** concise estimate basis, kickoff dependency, delay impact, scope-change treatment, and third-party/tax notes.
+12. **Next Step:** client can approve the estimate by replying with written confirmation so PQC can issue the invoice and schedule kickoff. Do not imply that the estimate itself is a full agreement.
 
 ## Style and file format
 
@@ -180,6 +207,8 @@ Produce the estimate in this order:
 - Payment milestones sum to 100%.
 - Delivery duration and validity are visible.
 - Exclusions and assumptions are concise and material.
+- Project-specific client-side prerequisites are listed with timing and responsibility.
+- Notes explain kickoff dependencies, delays, scope changes, and external costs where relevant.
 - No full legal agreement, lengthy legal clauses, internal margin, or confidential costing is included.
 - Unknown information is omitted or clearly marked for confirmation, never invented.
 
