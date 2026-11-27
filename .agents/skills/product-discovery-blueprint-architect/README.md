@@ -1,106 +1,148 @@
 # Product Discovery & Blueprint Architect
 
-Turn a rough software idea or an existing product into a researched product blueprint that both a non-technical stakeholder and a development team can understand.
+Turn a rough idea or an existing product into a researched product blueprint for both non-technical stakeholders and development teams.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open SKILL.md](./SKILL.md)
+[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
-## When to use this skill
+## What it creates
 
-Use this skill in either mode:
+- Product objective, target audience, user problems, and success measures.
+- Competitor and market research based on the product's actual target geography (local, global, or multi-market).
+- Prioritised modules, features, user roles, and business rules.
+- Screen inventory with purpose, actions, and destinations.
+- User journeys, navigation tables, and Mermaid flowcharts.
+- Technical comparisons in this order: open-source/self-hosted, hosted free-tier, then paid/managed services.
+- Recommended technology stack, architecture, dependencies, risks, and roadmap.
+- A single consolidated set of clarification questions at the end.
 
-- **New product:** You have an idea, but need to define the product, target users, market, modules, screens, and technology.
-- **Existing product:** You have an application, website, repository, PRD, SRS, design, or current requirements and want to understand gaps or plan improvements.
+## When to use it
 
-Unlike the estimation and client-document skills, this skill can start with a rough idea. It does not start implementation; it creates the product blueprint.
+Use for both:
+- **New product:** you have an idea but need to define what to build.
+- **Existing product:** you have a website, app, repository, requirements, designs, or current workflows and need a gap analysis or improved blueprint.
 
-## What it produces
+For technical services, it compares libraries, SDKs, APIs, and infrastructure. It verifies licensing, quotas, trial expiry, operating costs, pricing, availability, security, and documentation. Open-source software may still require paid hosting and maintenance.
 
-1. Product objective, audience, user problems, and success criteria.
-2. Local, global, or multi-market competitor research based on the product's actual target market.
-3. Core modules, features, priorities, roles, and business rules.
-4. Screen inventory with purpose, actions, and destinations.
-5. User journeys and screen-to-screen navigation tables.
-6. Mermaid navigation and architecture diagrams.
-7. Technical service/API comparisons in this order:
-   - Open-source and self-hosted options.
-   - Hosted services with a verified free tier.
-   - Paid/managed services when justified.
-8. Recommended technology stack with trade-offs.
-9. MVP and later-phase roadmap, dependencies, assumptions, and risks.
-10. One consolidated list of decision questions at the end.
+---
 
-## Free-first technical research
+## Install with the Skills CLI
 
-For each capability (for example calling, messaging, payments, maps, file storage, notifications, or authentication), the skill compares relevant libraries, SDKs, APIs, and infrastructure.
+These skills use the shared Agent Skills format. Install them through the Skills CLI into any supported coding agent. The CLI places the skill in the correct location for the selected agent.
 
-It must check documentation, license, hosting needs, free quotas, trial expiry, overage fees, production limits, regional availability, security, maintenance effort, and paid pricing. "Open source" does not mean zero hosting or operating cost, and a temporary trial must not be presented as a permanent free tier.
+### Popular supported agents
 
-## How to install in Antigravity
+| Agent | Agent ID for the CLI |
+|---|---|
+| Claude Code | `claude-code` |
+| Codex | `codex` |
+| Cursor | `cursor` |
+| Google Antigravity | `antigravity` |
+| Gemini CLI | `gemini-cli` |
+| GitHub Copilot | `github-copilot` |
+| Cline | `cline` |
 
-Install from the root of the project where you want the skill to be available.
+See the [complete, current supported-agent list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). Agent IDs and supported targets can change as the Skills CLI evolves.
 
-**Project installation**
+### Install in the current project
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent antigravity
-```
+Run from the root of the project where you want this skill available. Replace `<agent-id>` with one of the supported IDs above.
 
-**Global installation**
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent <agent-id>
+~~~
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent antigravity --global
-```
+Example for Claude Code:
 
-## How to update
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent claude-code
+~~~
 
-**Update project installation**
+### Install globally for your user account
 
-Run from the project root:
+This makes the skill available across projects for the selected agent.
 
-```bash
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent <agent-id> --global
+~~~
+
+### Install for multiple agents
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent claude-code codex cursor antigravity
+~~~
+
+### Install for all supported agents
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill product-discovery-blueprint-architect --agent '*'
+~~~
+
+Add `--global` to the command for global installation.
+
+---
+
+## Update this skill
+
+Update the project installation (run from the project root):
+
+~~~bash
 npx skills update product-discovery-blueprint-architect -p
-```
+~~~
 
-**Update global installation**
+Update the global installation:
 
-```bash
+~~~bash
 npx skills update product-discovery-blueprint-architect -g
-```
+~~~
+
+Update all installed project skills:
+
+~~~bash
+npx skills update -p
+~~~
+
+Update all globally installed skills:
+
+~~~bash
+npx skills update -g
+~~~
+
+Check for available updates:
+
+~~~bash
+npx skills check
+~~~
+
+List installed skills:
+
+~~~bash
+npx skills list
+npx skills list -g
+~~~
+
+> The Skills CLI update command updates skills already tracked by that CLI. If you manually copied a skill folder, download the latest folder from this repository and replace the manual copy.
+
+---
 
 ## Example prompt
 
-```text
+~~~text
 Use product-discovery-blueprint-architect.
 
-I want to create/improve this product:
-[Describe the idea or provide the existing project/repository]
+I want to create or improve this product:
+[Describe the idea or share the existing product/repository]
 
-Understand the business goal and target users. Research the product
-market according to its actual target geography. Identify competitors,
+Research the actual target market. Define the objective, users,
 modules, features, roles, screens, journeys, and navigation flowcharts.
 
-For every technical service, compare open-source/self-hosted first,
-hosted free tiers second, and paid options third. Verify documentation,
-licensing, free limits, pricing, and operational costs.
+Compare open-source/self-hosted options first, hosted free tiers second,
+and paid alternatives third. Verify docs, licenses, quotas, operating
+costs, and pricing. Use plain language and put all decision questions
+together at the end with recommended defaults.
+~~~
 
-Use simple language. Inspect the available files/code first if this is
-an existing product. Collect all decision-changing questions and put
-them together at the end with a recommended default for each.
-```
+## Notes
 
-## What to provide
-
-For better results, share whatever is available:
-- A plain-language idea or client brief.
-- Existing website/app/repository URL or local project files.
-- PRD, SRS, user stories, screen designs, screenshots, or API docs.
-- Target users, business goals, countries/markets, and constraints.
-
-Do not share passwords, secret keys, production credentials, or private customer data.
-
-## Important
-
-- Research depends on the AI agent having web-browsing access.
-- Market geography follows the product's audience, not automatically the developer's location.
-- The blueprint is provisional until material questions and assumptions are confirmed.
-- This skill recommends and documents a solution; it does not create cloud resources, register vendor accounts, or start coding unless separately requested.
+- Web research, repository access, file reading, and diagram rendering depend on the capabilities of the selected agent and tools connected to it.
+- The skill is written in agent-neutral format; some execution features may vary between agents.
+- Never share secrets, access tokens, passwords, private customer data, or bank details in prompts or public repositories.
