@@ -1,86 +1,148 @@
 # Client Proposal & Legal Agreement Generator
 
-Convert an approved project estimate into a professional client proposal, Statement of Work (SOW), payment schedule, and draft software development services agreement.
+Convert an approved project estimate into a structured client proposal and draft development agreement with clear commercial terms.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open SKILL.md](./SKILL.md)
+[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
-## Party roles — do not reverse them
-
-- **Development company / Service Provider:** Parallel Quintillion Coders (PQC).
-- **Client / Customer:** the person or company commissioning the software and paying PQC.
-
-The skill uses PQC's public-facing contact details as a starting point, checks accessible project/conversation information for both parties, and asks only for missing details. PQC's brand name must not be mistaken for a registered legal entity; legal entity, authorized signatory, and tax details must be confirmed when needed.
-
-## When to use this skill
-
-Use it when:
-- The project scope and estimate have been reviewed.
-- The client needs a formal proposal and/or SOW.
-- You need a draft development agreement with payment, ownership, acceptance, support, cancellation, and other commercial/legal terms.
-
-For a short estimate only, use [Client Estimation & Payment Quotation](../client-estimation-payment-quotation/README.md).
-
-## What it produces
+## What it creates
 
 - Client-facing project proposal and quotation.
-- Detailed scope and deliverables / SOW.
+- Detailed scope and deliverables / Statement of Work.
 - Advance and milestone payment schedule.
-- Client responsibilities, prerequisites, and change-request rules.
+- Client responsibilities, prerequisites, and change-request controls.
 - Acceptance and testing process.
-- IP/source-code ownership and transfer terms, as agreed.
+- Intellectual-property and source-code terms.
 - Confidentiality and data-protection clauses.
 - Warranty versus paid maintenance/support.
 - Cancellation, termination, liability, and dispute clauses for legal review.
 - Correct provider/client signature blocks.
 
-## How to install in Antigravity
+## Party roles
 
-Run from the root of the project where you want the skill to be available.
+- **Service Provider / Developer:** Parallel Quintillion Coders (PQC).
+- **Client / Customer:** the person or company commissioning the work and paying PQC.
 
-**Project installation**
+The skill recovers available information from the conversation and project files, checks PQC's public contact details, and asks only for missing legal details. PQC's public brand name is not automatically its registered legal entity.
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent antigravity
-```
+## When to use it
 
-**Global installation**
+Use after the scope and estimate have been approved, when the client needs a formal proposal, SOW, and draft agreement. For a short estimate only, use Client Estimation & Payment Quotation.
 
-```bash
-npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent antigravity --global
-```
+---
 
-## How to update
+## Install with the Skills CLI
 
-**Update project installation**
+These skills use the shared Agent Skills format. Install them through the Skills CLI into any supported coding agent. The CLI places the skill in the correct location for the selected agent.
 
-```bash
+### Popular supported agents
+
+| Agent | Agent ID for the CLI |
+|---|---|
+| Claude Code | `claude-code` |
+| Codex | `codex` |
+| Cursor | `cursor` |
+| Google Antigravity | `antigravity` |
+| Gemini CLI | `gemini-cli` |
+| GitHub Copilot | `github-copilot` |
+| Cline | `cline` |
+
+See the [complete, current supported-agent list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). Agent IDs and supported targets can change as the Skills CLI evolves.
+
+### Install in the current project
+
+Run from the root of the project where you want this skill available. Replace `<agent-id>` with one of the supported IDs above.
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent <agent-id>
+~~~
+
+Example for Claude Code:
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent claude-code
+~~~
+
+### Install globally for your user account
+
+This makes the skill available across projects for the selected agent.
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent <agent-id> --global
+~~~
+
+### Install for multiple agents
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent claude-code codex cursor antigravity
+~~~
+
+### Install for all supported agents
+
+~~~bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent '*'
+~~~
+
+Add `--global` to the command for global installation.
+
+---
+
+## Update this skill
+
+Update the project installation (run from the project root):
+
+~~~bash
 npx skills update client-proposal-legal-agreement-generator -p
-```
+~~~
 
-**Update global installation**
+Update the global installation:
 
-```bash
+~~~bash
 npx skills update client-proposal-legal-agreement-generator -g
-```
+~~~
+
+Update all installed project skills:
+
+~~~bash
+npx skills update -p
+~~~
+
+Update all globally installed skills:
+
+~~~bash
+npx skills update -g
+~~~
+
+Check for available updates:
+
+~~~bash
+npx skills check
+~~~
+
+List installed skills:
+
+~~~bash
+npx skills list
+npx skills list -g
+~~~
+
+> The Skills CLI update command updates skills already tracked by that CLI. If you manually copied a skill folder, download the latest folder from this repository and replace the manual copy.
+
+---
 
 ## Example prompt
 
-```text
+~~~text
 Use client-proposal-legal-agreement-generator.
 
-Use the approved estimate and project scope to prepare a client-ready
-proposal, SOW, payment schedule, and draft software development agreement.
+Use the approved scope and estimate to prepare a client-facing proposal,
+SOW, payment schedule, and draft software development services agreement.
+PQC is the service provider and the customer is the client. Recover
+available party information and use visible placeholders for missing
+legal details. Do not expose internal cost or margin.
+~~~
 
-PQC is the development company/service provider. The customer is the client.
-Recover existing information from accessible project context and ask only
-for missing client or PQC legal details. Use visible placeholders where needed.
+## Notes
 
-Keep internal costs and margins out of the client document.
-```
-
-## Legal and privacy notes
-
-- This skill drafts commercial/legal text; it is not a substitute for advice from a qualified lawyer in the relevant jurisdiction.
-- Do not assume a legal entity, GSTIN, PAN, bank account, registered office, governing law, or court.
-- Payment percentages, refund provisions, liability caps, IP transfer, and dispute terms must be confirmed and reviewed before signing.
-- Never commit confidential client details, credentials, bank data, or private agreements to the public repository.
+- Web research, repository access, file reading, and diagram rendering depend on the capabilities of the selected agent and tools connected to it.
+- The skill is written in agent-neutral format; some execution features may vary between agents.
+- Never share secrets, access tokens, passwords, private customer data, or bank details in prompts or public repositories.
