@@ -4,6 +4,22 @@ Reusable Antigravity agent skills for software project estimation, financial cos
 
 **Repository:** https://github.com/parallelquintillioncoders/pqc-ai-skills
 
+
+
+## Intended use: existing projects, not scratch-project creation
+
+**These skills are designed to review and estimate an existing client project or an already-defined project scope. They are not intended to invent, design, or plan a completely new project from zero.**
+
+Use them when you already have one or more of the following:
+- An existing application, website, backend, or software product/repository.
+- A client-provided PRD, SRS, requirement document, feature list, or scope brief.
+- Existing screens, UI/UX designs, user stories, API documentation, or database structure.
+- An existing project that needs new modules, enhancements, integrations, migration, or a revised estimate.
+
+The skills should inspect the available project material, understand what has already been built or specified, identify missing modules and gaps, and estimate only the agreed/current scope plus clearly labelled recommendations.
+
+**Do not ask these skills to create a new product idea or invent an entire application's requirements from scratch.** For a greenfield project with no defined scope, first complete product discovery and prepare an approved PRD/feature scope. Then use these skills to audit and estimate that defined scope.
+
 ## Available skills
 
 | Skill | Use it for | What it generates |
@@ -40,7 +56,7 @@ Run these commands in the terminal. They install the selected skill into the **c
 
 ### 1. Software Project Estimation Auditor
 
-Use this first to inspect project scope, identify missing modules, estimate time and effort, research current developer/agency rates, and calculate project costs.
+Use this first on an existing project, codebase, or client-defined scope to inspect what exists/is specified, identify missing modules, estimate time and effort, research current developer/agency rates, and calculate project costs. It is not a from-zero product ideation skill.
 
 ```bash
 npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent antigravity
@@ -48,7 +64,7 @@ npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-
 
 ### 2. Client Estimation & Payment Quotation
 
-Use this when you only need a short client-facing estimate. It includes who the estimate is prepared for, PQC as the developer/service provider, scope, module-wise pricing, timeline, total amount, and payment milestones. It does **not** create a full legal agreement.
+Use this for an existing project or an already-defined client scope when you only need a short client-facing estimate. It includes who the estimate is prepared for, PQC as the developer/service provider, existing/current scope, module-wise pricing, timeline, total amount, and payment milestones. It does **not** create a full legal agreement or invent a new project from scratch.
 
 ```bash
 npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-estimation-payment-quotation --agent antigravity
@@ -56,7 +72,7 @@ npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-estimation
 
 ### 3. Client Proposal & Legal Agreement Generator
 
-Use this when the client needs a formal proposal, SOW, and software development services agreement with commercial/legal terms and signatures.
+Use this for an existing project or an already-defined/approved scope when the client needs a formal proposal, SOW, and software development services agreement with commercial/legal terms and signatures.
 
 ```bash
 npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent antigravity
@@ -123,7 +139,7 @@ Ask Antigravity to use the skill by name. You can also refer to the skill explic
 ```text
 Use software-project-estimation-auditor.
 
-Inspect the PRD and project repository. Audit every module and workflow,
+Inspect the existing project's PRD, current implementation, and repository. Audit every existing and requested module and workflow,
 identify missing requirements and technical skills, estimate hours by role,
 build a dependency-aware delivery schedule, research current market rates
 for the relevant countries, and produce low/likely/high cost scenarios.
@@ -136,8 +152,9 @@ Do not invent requirements or rates. Cite current rate sources.
 ```text
 Use client-estimation-payment-quotation.
 
-Prepare a concise estimate addressed to the correct client.
-Include project scope, modules, deliverables, timeline, total price,
+Review the existing project materials and prepare a concise estimate addressed to the correct client.
+Use only the current/defined project scope; do not invent a new project.
+Include project modules, deliverables, timeline, total price,
 and advance/milestone payment terms.
 
 PQC is the development company and service provider.
@@ -150,7 +167,7 @@ Do not generate a full legal agreement.
 ```text
 Use client-proposal-legal-agreement-generator.
 
-Convert the approved estimate into a client-ready proposal, SOW,
+Review the existing project scope and convert the approved estimate into a client-ready proposal, SOW,
 payment schedule, and software development services agreement.
 Identify PQC as the service provider and the customer as the client.
 Include advance payment, milestone invoices, scope changes, acceptance,
