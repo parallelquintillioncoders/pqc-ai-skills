@@ -2,7 +2,7 @@
 
 Convert an approved project estimate into a structured client proposal and draft development agreement with clear commercial terms.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
+[← Back to PQC AI Skills](../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
 ## What it creates
 
