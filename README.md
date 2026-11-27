@@ -1,78 +1,177 @@
 # PQC AI Skills
 
-Reusable agent skills for software estimation and client-facing commercial documentation.
+Reusable Antigravity agent skills for software project estimation, financial costing, client quotations, and development agreements.
 
-## Included skills
+**Repository:** https://github.com/parallelquintillioncoders/pqc-ai-skills
 
-| Skill | Purpose |
-|---|---|
-| `software-project-estimation-auditor` | Audits scope, modules, missing requirements, technical skills, effort, schedule, current market rates, and project finances. |
-| `client-proposal-legal-agreement-generator` | Converts an approved estimate into a client-facing proposal, SOW, payment plan, and draft software development agreement. |
-| `client-estimation-payment-quotation` | Creates a concise client-facing estimate with recipient, module-wise pricing, delivery timeline, and payment milestones — without a full agreement. |
+## Available skills
+
+| Skill | Use it for | What it generates |
+|---|---|---|
+| `software-project-estimation-auditor` | Internal project analysis before quoting | Module audit, missing gaps, technical skill matrix, effort by role, timeline, researched market rates, cost and quote range |
+| `client-estimation-payment-quotation` | Sending a simple estimate to a client | Recipient details, project scope, module-wise price, delivery timeline, total amount, advance and milestone payment terms |
+| `client-proposal-legal-agreement-generator` | Formal client proposal and agreement | Client proposal, SOW, detailed payment plan, software development service agreement, legal/commercial clauses and signature blocks |
 
 ## Repository structure
 
 ```text
-.agents/
-  skills/
-    software-project-estimation-auditor/
-      SKILL.md
-    client-proposal-legal-agreement-generator/
-      SKILL.md
+pqc-ai-skills/
+├── README.md
+└── .agents/
+    └── skills/
+        ├── software-project-estimation-auditor/
+        │   └── SKILL.md
+        ├── client-estimation-payment-quotation/
+        │   └── SKILL.md
+        └── client-proposal-legal-agreement-generator/
+            └── SKILL.md
 ```
 
-## Install in Antigravity
+## Requirements
 
-Clone the repository into a project workspace so Antigravity can discover the workspace skills:
+- Node.js and npm/npx for CLI installation.
+- Google Antigravity installed.
+- Internet access to download the public repository.
+- For market-rate research, the estimation skill needs an agent/tool with web browsing access.
+
+## Install in Antigravity — choose one skill
+
+Run these commands in the terminal. They install the selected skill into the **current project workspace**. Run the command from the root directory of the project where you want Antigravity to use the skill.
+
+### 1. Software Project Estimation Auditor
+
+Use this first to inspect project scope, identify missing modules, estimate time and effort, research current developer/agency rates, and calculate project costs.
 
 ```bash
-git clone https://github.com/parallelquintillioncoders/pqc-ai-skills.git
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent antigravity
 ```
 
-Then use the skills folder in your workspace, or copy both skill directories into the workspace's existing `.agents/skills/` folder.
+### 2. Client Estimation & Payment Quotation
 
-For global Windows installation, copy the two skill directories into:
+Use this when you only need a short client-facing estimate. It includes who the estimate is prepared for, PQC as the developer/service provider, scope, module-wise pricing, timeline, total amount, and payment milestones. It does **not** create a full legal agreement.
+
+```bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-estimation-payment-quotation --agent antigravity
+```
+
+### 3. Client Proposal & Legal Agreement Generator
+
+Use this when the client needs a formal proposal, SOW, and software development services agreement with commercial/legal terms and signatures.
+
+```bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent antigravity
+```
+
+## Install all three skills together
+
+Run this from your project root if you want every PQC skill available in that project:
+
+```bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill '*' --agent antigravity
+```
+
+## Install globally for all Antigravity projects
+
+Use the `--global` flag to install a skill for your user account instead of only the current project. Run one command per skill:
+
+```bash
+# 1. Internal project estimation and cost audit
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill software-project-estimation-auditor --agent antigravity --global
+
+# 2. Simple client estimate and payment quotation
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-estimation-payment-quotation --agent antigravity --global
+
+# 3. Detailed client proposal and legal agreement
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill client-proposal-legal-agreement-generator --agent antigravity --global
+```
+
+To install all three globally in one command:
+
+```bash
+npx skills add parallelquintillioncoders/pqc-ai-skills --skill '*' --agent antigravity --global
+```
+
+## Manual installation (Windows)
+
+If you prefer not to use the CLI:
+
+1. Clone or download this repository.
+2. Copy the skill folders from `.agents\skills\` into your Antigravity workspace's `.agents\skills\` folder.
+
+For global installation, copy the three skill folders into:
 
 ```text
-%USERPROFILE%\.gemini\config\skills\
+%USERPROFILE%\.gemini\antigravity\skills\
 ```
 
-Restart/refresh Antigravity and confirm the skills appear in Agent Customizations.
+Example PowerShell commands, when run from the cloned repository folder:
 
-## Example prompts
+```powershell
+$destination = "$env:USERPROFILE\.gemini\antigravity\skills"
+New-Item -ItemType Directory -Force $destination | Out-Null
+Copy-Item ".\.agents\skills\*" $destination -Recurse -Force
+```
 
-**Estimate a project**
+After installation, restart or refresh Antigravity and check the Agent Customizations / Skills area. If a newly installed skill is not listed, confirm that its folder contains a `SKILL.md` file and that the folder name matches the skill name.
+
+## How to use each skill
+
+Ask Antigravity to use the skill by name. You can also refer to the skill explicitly in your prompt.
+
+### Estimate a project internally
 
 ```text
 Use software-project-estimation-auditor.
-Inspect the PRD and repository. Audit every module and workflow,
-identify missing requirements and skills, estimate hours by role,
-build a dependency-aware schedule, research current market rates
-for the relevant countries, and produce low/likely/high pricing.
-Do not invent requirements or rates; cite live sources.
+
+Inspect the PRD and project repository. Audit every module and workflow,
+identify missing requirements and technical skills, estimate hours by role,
+build a dependency-aware delivery schedule, research current market rates
+for the relevant countries, and produce low/likely/high cost scenarios.
+
+Do not invent requirements or rates. Cite current rate sources.
 ```
 
-**Prepare a short estimate only**
+### Send only a quotation to the client
 
 ```text
 Use client-estimation-payment-quotation.
-Prepare a concise client estimate addressed to the right customer.
-Include the main modules, deliverables, delivery timeline, total price,
-and 50/30/20 payment milestones unless different terms were agreed.
-Do not generate a full agreement or lengthy legal clauses.
+
+Prepare a concise estimate addressed to the correct client.
+Include project scope, modules, deliverables, timeline, total price,
+and advance/milestone payment terms.
+
+PQC is the development company and service provider.
+The client is the customer and pays PQC.
+Do not generate a full legal agreement.
 ```
 
-**Prepare a client pack**
+### Prepare a formal proposal and agreement
 
 ```text
 Use client-proposal-legal-agreement-generator.
+
 Convert the approved estimate into a client-ready proposal, SOW,
-payment schedule, and software services agreement. Include advance
-payment, milestone invoices, scope changes, acceptance, IP, warranty,
-maintenance exclusions, cancellation, confidentiality, liability,
-and dispute terms. Use placeholders for unknown legal details.
+payment schedule, and software development services agreement.
+Identify PQC as the service provider and the customer as the client.
+Include advance payment, milestone invoices, scope changes, acceptance,
+IP, warranty, maintenance exclusions, cancellation, confidentiality,
+liability, and dispute terms. Use placeholders for unknown legal details.
 ```
 
-## Important
+## Update installed skills
 
-These skills generate estimates and draft commercial/legal documents. Legal terms are proposals, not legal advice. Have jurisdiction-specific clauses reviewed by qualified counsel before signature. Never publish client-confidential data, secrets, or credentials in this repository.
+To refresh installed skills from the repository:
+
+```bash
+npx skills update
+```
+
+For command options and supported agents, see the [Skills CLI documentation](https://www.skills.sh/docs/cli) and [Skills CLI repository](https://github.com/vercel-labs/skills).
+
+## Important notes
+
+- The estimation auditor can only live-check market rates when the selected AI agent has web-browsing access. It must not invent rates or citations.
+- The client quotation skill is intentionally short and is not a legal agreement.
+- The proposal/agreement skill creates a draft. Have jurisdiction-specific clauses reviewed by a qualified lawyer before signing.
+- PQC's public-facing brand/contact details do not by themselves prove the registered legal contracting entity. Confirm the legal entity, tax details, and signatory before issuing formal contracts or tax invoices.
+- Never commit client-confidential data, credentials, API keys, bank details, or private project information to this public repository.
