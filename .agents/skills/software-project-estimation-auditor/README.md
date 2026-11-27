@@ -2,7 +2,7 @@
 
 Build a realistic, evidence-based estimate for an existing software project, repository, or already-defined client scope.
 
-[← Back to PQC AI Skills](../../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
+[← Back to PQC AI Skills](../../../README.md) · [Open skill instructions (`SKILL.md`)](./SKILL.md)
 
 ## What it creates
 
