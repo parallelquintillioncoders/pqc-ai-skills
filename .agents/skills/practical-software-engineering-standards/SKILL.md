@@ -13,7 +13,18 @@ For an existing project, inspect its language, framework, folder structure, arch
 
 For a new project, choose the simplest structure that supports its expected complexity, team size, security needs, and growth. State important assumptions.
 
-## 2. Core principles
+## 2. AI-assisted coding workflow
+
+Apply these behaviors to non-trivial implementation and review tasks:
+
+1. **Think before coding:** inspect relevant files and call paths. Surface assumptions and trade-offs. Ask only when ambiguity blocks a safe, correct decision; otherwise state a reasonable assumption.
+2. **Simplicity first:** deliver the smallest complete solution. Avoid speculative features, single-use abstractions, and unrequested configurability.
+3. **Surgical changes:** in existing projects, change only what the request requires. Preserve established conventions and contracts; avoid drive-by refactoring. Remove only unused code made obsolete by your change. Report unrelated issues separately.
+4. **Verifiable goals:** define acceptance checks before implementation. Reproduce bugs with a test where practical; run relevant tests, lint, build, or type checks after changes. Clearly report what passed, failed, or could not be run.
+
+For trivial, obvious changes, use judgment rather than performing a heavyweight process. These practices are adapted from the community-maintained [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) project, which describes its guidance as derived from Andrej Karpathy's observations on LLM coding pitfalls; it is not an official Andrej Karpathy project or endorsement.
+
+## 3. Core principles
 
 | Principle | Apply it when | Practical rule |
 |---|---|---|
@@ -28,7 +39,7 @@ For a new project, choose the simplest structure that supports its expected comp
 
 Do not force SOLID onto simple scripts, CRUD handlers, data models, or small functions. Avoid premature generalization. A little duplication is often safer than a misleading shared abstraction.
 
-## 3. Architecture and dependencies
+## 4. Architecture and dependencies
 
 - Keep business rules independent of UI, framework, database, and network details when project complexity justifies the separation.
 - Define clear module ownership and interfaces; avoid circular dependencies.
@@ -39,7 +50,7 @@ Do not force SOLID onto simple scripts, CRUD handlers, data models, or small fun
 
 Do not add layers, repositories, use cases, dependency-injection frameworks, or microservices by default. Explain the concrete problem each abstraction solves.
 
-## 4. File, class, and function size
+## 5. File, class, and function size
 
 These are **review signals, not hard limits**. Cohesion, readability, complexity, and change frequency matter more than line count.
 
@@ -53,7 +64,7 @@ These are **review signals, not hard limits**. Cohesion, readability, complexity
 
 Exceptions are valid for generated code, schemas, declarative UI, migrations, configuration, and cohesive data definitions. Never split code solely to satisfy a number. Extract only when it improves naming, testability, reuse, or comprehension.
 
-## 5. Implementation quality
+## 6. Implementation quality
 
 - Use clear, consistent names and the repository's formatter, linter, and language conventions.
 - Keep functions focused; validate inputs at trust boundaries.
@@ -63,7 +74,7 @@ Exceptions are valid for generated code, schemas, declarative UI, migrations, co
 - Add comments for intent, constraints, and non-obvious decisions—not to narrate obvious code.
 - Make changes narrowly in existing projects; avoid unrelated refactoring.
 
-## 6. Testing, security, and reliability
+## 7. Testing, security, and reliability
 
 - Test important business rules with unit tests; test database, API, and integration boundaries with integration tests.
 - Add UI/end-to-end tests for critical user journeys, not every minor visual detail.
@@ -72,7 +83,7 @@ Exceptions are valid for generated code, schemas, declarative UI, migrations, co
 - Use secure secret storage, transport encryption, safe data handling, and dependency updates appropriate to the platform.
 - Consider accessibility, performance, offline behavior, backups, migrations, and observability when relevant to the product—not as boilerplate for every project.
 
-## 7. Review checklist
+## 8. Review checklist
 
 Before completing a feature or recommending approval, check:
 
@@ -86,10 +97,14 @@ Before completing a feature or recommending approval, check:
 
 Report only actionable findings. Prioritize **critical security/data-loss issues**, then correctness, maintainability, performance, and style. Do not block a change for subjective preferences.
 
-## 8. Output rules
+## 9. Output rules
 
 For a project blueprint, include a compact **Engineering Standards** section containing only applicable principles, architecture boundaries, naming/file conventions, testing, and security requirements.
 
 For code review, report: severity, file/location, issue, impact, and recommended fix. Separate confirmed defects from suggestions.
 
 Do not repeat this entire standard in every response. Mention only decisions that affect the current project. If a project-specific convention conflicts with this guide, inspect and explain the trade-off before changing it.
+
+## Source
+
+- [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) — community-maintained, MIT-licensed reference for the four AI-coding workflow behaviors above. The PQC skill summarizes and adapts the ideas; it does not reproduce the source files.
