@@ -199,7 +199,10 @@ pqc-ai-skills/
         ├── client-estimation-payment-quotation/
         │   ├── SKILL.md
         │   └── README.md
-        └── client-proposal-legal-agreement-generator/
+        ├── client-proposal-legal-agreement-generator/
+        │   ├── SKILL.md
+        │   └── README.md
+        └── practical-software-engineering-standards/
             ├── SKILL.md
             └── README.md
 ~~~
